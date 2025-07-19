@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { work } from '../Data/Data'
 import { Avatar } from '@mantine/core'
 
@@ -23,8 +23,8 @@ export const Working = () => {
         {/* right */}
        <div className='flex flex-col gap-10'>
        {
-        work.map((item,index)=>
-         <div key={index} className="flex items-center gap-4">
+        work.map(()=>
+         <div  className="flex items-center gap-4">
              <div className='p-2.5 bg-bright-sun-300 rounded-full'>
            <img className="h-12 w-12" src="/Working/Build your resume.png" alt=""/>  
         </div>
