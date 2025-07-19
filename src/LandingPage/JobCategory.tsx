@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { Carousel } from '@mantine/carousel';
 import { jobCategory } from '../Data/Data';
 import { IconArrowLeft, IconArrowRight } from '@tabler/icons-react';
@@ -17,7 +17,7 @@ const JobCategory = () => {
          >
           
           {
-            jobCategory.map((category, index)=><Carousel.Slide>
+            jobCategory.map((category)=><Carousel.Slide>
            <div className="flex flex-col items-center w-64 gap-2 border border-bright-sun-400 p-5 rounded-xl hover:shadow-[0_0_5px_2px_black] my-5 transition duration-300 ease-in-out !shadow-bright-sun-300 ">   
             <div className="p-2 bg-bright-sun-300 rounded-full">
                 <img className="h-8 w-8"src={`/Category/${category.name}.png`} alt={category.name}/>

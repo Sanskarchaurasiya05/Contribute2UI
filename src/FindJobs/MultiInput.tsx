@@ -8,19 +8,12 @@ import {
   PillsInput,
   useCombobox,
 } from '@mantine/core';
-import { IconSearch, IconSelector } from '@tabler/icons-react';
+import {  IconSelector } from '@tabler/icons-react';
 
-const initialGroceries = [
-  '🍎 Apples',
-  '🍌 Bananas',
-  '🥦 Broccoli',
-  '🥕 Carrots',
-  '🍫 Chocolate',
-];
 
 const MAX_DISPLAYED_VALUES = 2;
 
-const MultiInput = (props:any) => {
+const MultiInput = (props : { options: string[]; icon: React.ElementType; title: string }) => {
   useEffect(() => {
     setData(props.options);
   },[])

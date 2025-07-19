@@ -1,5 +1,5 @@
 import { Avatar, Rating } from '@mantine/core'
-import React from 'react'
+
 import { testimonials } from '../Data/Data'
 
 export const Testimonials = () => {
@@ -8,7 +8,7 @@ export const Testimonials = () => {
         <div className='text-4xl text-center font-semibold mb-3 text-mine-shaft-100'>What <span className="text-bright-sun-400">User</span> says about us?</div>
     <div className='flex justify-evenly'>
         {
-        testimonials.map((data , index)=>
+        testimonials.map((data)=>
           <div className='flex flex-col gap-3 w-[23%] border border-bright-sun-400 p-3 rounded-xl mt-10'>
         <div className='flex gap-2 items-center'>
              <Avatar className='!h-14 !w-14' src="avatar.png" alt="it's me" />
