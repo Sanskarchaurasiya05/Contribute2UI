@@ -1,6 +1,5 @@
 import { Divider } from '@mantine/core'
 import SearchBar from '../FindTalent/SearchBar'
-import Jobs from '../FindJobs/Jobs'
 import Talents from '../FindTalent/Talents'
 
 

@@ -1,5 +1,5 @@
 import { Avatar, Button, Divider, Text } from '@mantine/core'
-import { IconClockHour3, IconHeart, IconMapPin } from '@tabler/icons-react'
+import {  IconHeart, IconMapPin } from '@tabler/icons-react'
 import { Link } from 'react-router-dom'
 
 const TalentCard = (props:any) => {
