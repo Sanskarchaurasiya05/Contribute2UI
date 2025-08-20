@@ -1,3 +1,4 @@
+import { talents } from "../Data/TalentData"
 import Sort from "../FindJobs/Sort"
 import TalentCard from "./TalentCard"
 
@@ -10,7 +11,9 @@ const Talents = () => {
        </div>
        <div className='mt-10 flex flex-wrap gap-5'>
        {/* Talent Cards */}
-      <TalentCard/>
+     {
+      talents.map((talent,index)=> <TalentCard key={index} {...talent}/>)
+     }
         </div>  
     </div>
   )
