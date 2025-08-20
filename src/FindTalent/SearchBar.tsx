@@ -1,5 +1,5 @@
 import { Divider, Input, RangeSlider } from "@mantine/core"
-import { dropdownData } from "../Data/JobsData"
+
 
 import { useState } from "react";
 import MultiInput from "../FindJobs/MultiInput";

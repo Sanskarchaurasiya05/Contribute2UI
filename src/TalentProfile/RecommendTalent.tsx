@@ -1,6 +1,6 @@
 import TalentCard from "../FindTalent/TalentCard";
 import { talents } from "../Data/TalentData";
-const RecommendTalent = (props:any) => {
+const RecommendTalent = () => {
     
     return <div>
         <div className="text-xl font-semibold mb-5">Recommended Talent</div>
