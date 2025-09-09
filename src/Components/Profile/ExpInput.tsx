@@ -22,8 +22,10 @@ export const ExpInput = (props:any) => {
                           <SelectInput {...select[2]}/>
                           <Textarea withAsterisk label="summary" value={desc} placeholder='Enter Summary' autosize minRows={3} onChange={(event:any) => setDesc(event.currentTarget.value)}/>
                             <div className='flex gap-10 [&>*]:w-1/2'>
-                            <MonthPickerInput withAsterisk maxDate={endDate || undefined} label="Start Date" placeholder="Pick date" value={startDate} onChange={setStartDate}/>
-                             <MonthPickerInput disabled={checked} withAsterisk minDate={startDate||undefined} label="End Date" placeholder="Pick date" value={endDate} onChange={setEndDate}/>
+                            <MonthPickerInput withAsterisk maxDate={endDate || undefined} label="Start Date" placeholder="Pick date" value={startDate} />
+                            {/* onChange={setStartDate} */}
+                             <MonthPickerInput disabled={checked} withAsterisk minDate={startDate||undefined} label="End Date" placeholder="Pick date" value={endDate} />
+                             {/* onChange={setEndDate} */}
                            
                             </div>
                               <Checkbox checked={checked} onChange={(event)=> setChecked(event.currentTarget.checked)} autoContrast label="Currently working here"/>
