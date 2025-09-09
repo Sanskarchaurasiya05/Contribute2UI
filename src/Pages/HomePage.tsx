@@ -1,10 +1,15 @@
 
-import Companies from "../LandingPage/Companies"
-import DreamJob from "../LandingPage/DreamJob"
-import JobCategory from "../LandingPage/JobCategory"
-import { Suscribe } from "../LandingPage/Suscribe"
-import { Testimonials } from "../LandingPage/Testimonials"
-import { Working } from "../LandingPage/Working"
+import Companies from "../Components/LandingPage/Companies"
+import DreamJob from "../Components/LandingPage/DreamJob"
+import JobCategory from "../Components/LandingPage/JobCategory"
+
+
+
+
+import { Suscribe } from "../Components/LandingPage/Suscribe"
+import { Testimonials } from "../Components/LandingPage/Testimonials"
+import { Working } from "../Components/LandingPage/Working"
+
 
 
 
@@ -14,6 +19,7 @@ const HomePage = () => {
    
       <DreamJob/>
       <Companies/>
+
       <JobCategory/>
       <Working/>
       <Testimonials/>
