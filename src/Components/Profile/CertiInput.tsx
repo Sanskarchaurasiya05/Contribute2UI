@@ -18,8 +18,8 @@ const CertiInput = (props:any) => {
                 </div>
                  <div className="flex gap-10 [&>*]:w-1/2">
                 <TextInput label="Certificate ID" withAsterisk placeholder="Enter Certificate ID"/>
-                 <MonthPickerInput withAsterisk maxDate={new Date()} label="Issue Date" placeholder="Pick date" value={issueDate} />
-                 {/* onChange={setIssueDate} */}
+                 <MonthPickerInput withAsterisk maxDate={new Date()} label="Issue Date" placeholder="Pick date" value={issueDate}    onChange={setIssueDate}  />
+               
                 </div>
                  <div className='flex gap-5'>
              <Button onClick={()=>props.setEdit(false)} color="brightSun.4" variant="outline">Save</Button>

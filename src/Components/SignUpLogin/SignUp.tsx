@@ -15,7 +15,7 @@ import { notifications } from '@mantine/notifications'
     }
 
 const SignUp = () => {
-    const [value,setValue] = useState('react');
+
 
     const [data,setData] = useState<{[key:string]:string}>(form);
 

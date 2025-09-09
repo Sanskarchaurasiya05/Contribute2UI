@@ -44,7 +44,7 @@ const ResetPassword = (props: any) => {
   }
 
   const handleVerifyOTP=(otp:String)=>{
-      verifyOtp(email,otp).then((res)=>{
+      verifyOtp(email,otp).then(()=>{
        successNotification("OTP Verified","Enter new Password.");
          setverified(true);
       }).catch((err)=>{
@@ -67,8 +67,8 @@ const ResetPassword = (props: any) => {
   }
 
   const handleResetPassword=()=>{
-       changePass(email,password).then((res)=>{
-        console.log(res);
+       changePass(email,password).then(()=>{
+        console.log();
         successNotification("Password changed", "Login with new password");
         props.close();
        }).catch((err)=>{

@@ -1,7 +1,7 @@
 import { notifications } from "@mantine/notifications"
 import { IconCheck, IconX } from "@tabler/icons-react"
 
-      const successNotification=(title:string, message:string)=>{
+      const successNotification=()=>{
        notifications.show({
           title:"Login Successful",
           message:"Redirecting to HomePage page...",
