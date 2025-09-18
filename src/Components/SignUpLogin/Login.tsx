@@ -2,13 +2,19 @@ import { Button, LoadingOverlay, PasswordInput, TextInput } from '@mantine/core'
 import { IconAt, IconCheck, IconLock, IconX } from '@tabler/icons-react'
 import { useState } from 'react'
 import {  useNavigate } from 'react-router-dom'
-import { loginUser } from '../../Services/UserService'
 import { loginValidation } from '../../Services/FormValidation'
 import { notifications } from '@mantine/notifications'
 import { useDisclosure } from '@mantine/hooks'
 import ResetPassword from './ResetPassword'
 import { useDispatch } from 'react-redux'
+
+import { setjwt } from '../../Slices/JwtSlice'
+import { loginUser } from '../../Services/AuthService'
+import {jwtDecode} from 'jwt-decode'
 import { setUser } from '../../Slices/UserSlice'
+
+
+
 
 export const Login = () => {
 
@@ -36,9 +42,9 @@ const handleSubmit=()=>{
 
         setFormError(newFormError);
            if(valid===true){
-        console.log(data);
+        // console.log(data);
         loginUser(data).then((res)=>{
-          console.log(res);
+          // console.log(res);
           setData(form);
             notifications.show({
           title:"Login Successful",
@@ -49,9 +55,12 @@ const handleSubmit=()=>{
           withBorder:true,
           className:'!border-green-500',
         })
+         dispatch(setjwt(res.jwt)); 
+         const decoded = jwtDecode(res.jwt);
+          console.log(decoded);
         setTimeout(()=>{
           setLoading(false);
-          dispatch(setUser(res));
+           dispatch(setUser({...decoded , email:decoded.sub}));
           navigate('/');
         },4000);
         }).catch((err)=>{

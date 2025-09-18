@@ -8,18 +8,31 @@ import {
     IconMoonStars,
     IconMoon,
 } from '@tabler/icons-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { removeUser } from '../../Slices/UserSlice';
+import { getProfile } from '../../Services/ProfileService';
+import { setProfile } from '../../Slices/ProfileSlice';
 
 
 const ProfileMenu = () => {
+     
+   const profile = useSelector((state:any)=>state.profile);
     const [opened, setOpened] = useState(false);
     const [checked, setChecked] = useState(false);
      const dispatch =useDispatch();
     const user = useSelector((state:any)=>state.user);
 
+      useEffect(()=>{
+     getProfile(user.id).then((data:any)=>{
+        // console.log(data);
+        dispatch(setProfile(data));
+          // console.log(profile);
+      }).catch((error:any)=>{
+        console.log(error);
+      })
+    })
     const handleLogout=()=>{
         dispatch(removeUser());
       
@@ -34,7 +47,7 @@ const ProfileMenu = () => {
         <Menu shadow="md" width={200} opened={opened} onChange={setOpened}>
             <Menu.Target><div className="flex items-center gap-2 cursor-pointer">
                 <div className='xs-mx:hidden'>{user.name}</div>
-                <Avatar src='/avatar.png' alt="it's me" />
+                <Avatar src={profile.picture?`data:image/jpeg;base64,${profile.picture}`:'/avatar.png'} alt="it's me" />
             </div>
             </Menu.Target>
 

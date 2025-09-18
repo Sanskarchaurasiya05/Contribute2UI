@@ -1,5 +1,5 @@
-import { ActionIcon, Divider, TagsInput, Textarea } from '@mantine/core'
-import {  IconDeviceFloppy,  IconPencil, IconPlus } from '@tabler/icons-react'
+import { ActionIcon, Avatar, Divider, FileInput, Overlay } from '@mantine/core'
+import {  IconDeviceFloppy,  IconEdit,  IconPencil, IconPlus } from '@tabler/icons-react'
 
 import CertiCard from './CertiCard'
 import ExpCard from './ExpCard'
@@ -9,7 +9,11 @@ import CertiInput from './CertiInput'
 import { useDispatch, useSelector } from 'react-redux'
 import { getProfile } from '../../Services/ProfileService'
 import { Info } from './Info'
-import { setProfile } from '../../Slices/ProfileSlice'
+import { changeProfile, setProfile } from '../../Slices/ProfileSlice'
+import { About } from './About'
+import Skills from './Skills'
+import { useHover } from '@mantine/hooks'
+import { successNotification } from '../../Services/NotificationService'
 
 
 
@@ -18,10 +22,12 @@ const Profile = () => {
     const dispatch=useDispatch();
    const user = useSelector((state:any)=>state.user);
    const profile = useSelector((state:any)=>state.profile);
-    const [skills,setSkills]=useState(["react","SpringBoot","java","python","django","fluter"]);
     const [addExp , setAddExp] = useState(false);
     const [addCerti , setAddCerti] = useState(false);
     const[edit,setEdit]=useState([false,false,false,false,false]);
+
+        const { hovered, ref } = useHover();
+
     const handleEdit=(index:any)=>{
         const newEdit=[...edit];
         newEdit[index]=!newEdit[index];
@@ -36,50 +42,47 @@ const Profile = () => {
         console.log(error);
       })
     })
-     const [about , setAbout] = useState("");
+
+     const handleFileChange =async (image:any) => {
+        let picture:any=await getBase64(image);
+        let updatedProfile={ ...profile, picture:picture.split(',')[1]};
+        dispatch(changeProfile(updatedProfile));
+        successNotification("Success","Profile Picture Updated Successfully");
+    };
+
+    const getBase64=(file:any)=>{
+      return new Promise((resolve,reject)=>{
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload=()=>resolve(reader.result);
+        reader.onerror=error=>reject(error);
+      })
+    }
   return (
     <div className='w-4/5 mx-auto'>
              <div className='relative'>
                  <img className="rounded-t-2xl " src="/Profile/banner.jpg" alt="" />
-                 <img className="w-48 h-48 rounded-full -bottom-1/3 absolute left-3 border-mine-shaft-950 border-8 " src='/avatar.png' alt="" />
+                  <div  ref={ref} className="absolute cursor-pointer flex items-center justify-center !rounded-full -bottom-1/3  md-mx:-bottom-10 sm-mx:-bottom-16  left-6">
+                    
+                        <Avatar  className="!w-48  !h-48 md-mx:!w-40 md-mx:!h-40 border-mine-shaft-950 border-8  rounded-full sm-mx:!w-36 sm-mx:!h-36 xs-mx:!h-32 xs-mx:!w-32" src={profile.picture?`data:image/jpg;base64,${profile.picture}`:'/avatar.png'} alt="" />
+                        {hovered &&<Overlay ref={ref} className="!rounded-full" color="#000" backgroundOpacity={0.75}  />}
+                        {hovered && <IconEdit className="absolute z-[300] !w-16 !h-16" />}
+                        {hovered &&<FileInput  onChange={handleFileChange} className="absolute [&_*]:!rounded-full z-[301] [&_*]:!h-full w-full !h-full" variant="unstyled"   accept="image/png,image/jpeg" />}
+                        
+                </div>
                  </div>
                  <div className='px-3 mt-16'>
                    <Info/>
                        
                        <Divider mx="xs"  my="xl"/>   
  </div>
-                       <div className='px-3'>
-                        <div className='text-2xl font-semibold mb-3 flex justify-between'>About<ActionIcon onClick={()=>handleEdit(1)} color='brightSun.4' size="lg" variant='subtle'>
-                   {edit[1]?<IconDeviceFloppy/>:<IconPencil className='h-4/5 w-4/5' stroke={1.5}/>}
-                  </ActionIcon>
-                  </div>
-                  {
-                    edit[1]? <Textarea value={about} placeholder='Enter about Yourself' autosize minRows={3} onChange={(event:any) => setAbout(event.currentTarget.value)}/>
-                    : <div className='text-sm text-mine-shaft-300 text-justify'>
-                         {profile?.about}
-                        </div>
-                  }
-                       
-
+                       <div className='px-3'>      
+                           <About/>
                        <Divider mx="xs"  my="xl"/>   
+                      
  </div>
                        <div className='px-3'>
-                        <div className='text-2xl font-semibold mb-3 flex justify-between'>Skills
-                                              <ActionIcon onClick={()=>handleEdit(2)} color='brightSun.4' size="lg" variant='subtle'>
-                   {edit[2]?<IconDeviceFloppy/>:<IconPencil className='h-4/5 w-4/5' stroke={1.5}/>}
-                  </ActionIcon>
-                        </div>
-                        {
-                           edit[2]?<TagsInput value={skills} onChange={setSkills} placeholder="Add Skills" splitChars={[',',' ','|']}/>:
-                            <div className='flex flex-wrap gap-2'>
-                         {
-                         profile?.skills?.map((skill:any,index:number)=> <div  key={index}  className='bg-bright-sun-300 text-sm font-medium bg-opacity-15 rounded-3xl text-bright-sun-400 px-3 py-1'>{skill}</div>)
-                        }
-                        </div>
-                        }
-                         
-                      
-
+                      <Skills/>
                        <Divider mx="xs"  my="xl"/>
                         </div>
                         <div className='px-3'>

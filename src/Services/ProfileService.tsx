@@ -1,14 +1,15 @@
 import axios from 'axios';
-const base_url = "http://localhost:8081/profiles/";
+import axiosInstance from '../Interceptor/AxiosInterceptor';
+const base_url = "http://localhost:8084/profiles/";
 
 const getProfile = async (id:number)=>{
-    return axios.get(`${base_url}get/${id}`)
+    return axiosInstance.get(`/profiles/get/${id}`)
     .then(res=>res.data)
     .catch(err=>{throw err});
 }
 
 const updateProfile = async (profile:any)=>{
-    return axios.put(`${base_url}update`,profile)
+    return axiosInstance.put(`/profiles/update`,profile)
     .then(res=>res.data)
     .catch(err=>{throw err});
 }
