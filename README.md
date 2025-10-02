@@ -4,7 +4,7 @@ A collaborative platform where developers can share their project repositories a
 It enables contributors to add missing features, fix bugs, or enhance code quality, while fostering a supportive developer community and promoting open-source collaboration.
 Startups can also find and hire active contributors as interns!
 
-🔗 Live Demo: Contribute2UI
+🔗 Live Demo: https://contribute2-ui-jrxu-nefg9db42-sanskar-chaurasiyas-projects.vercel.app
 
 📌 Features
 🔐 Authentication & Security
