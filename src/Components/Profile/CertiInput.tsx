@@ -1,5 +1,4 @@
 import { Button, TextInput } from '@mantine/core'
-import  { useState } from 'react'
 import fields from '../../Data/Profile';
 import SelectInput from './SelectInput';
 import { MonthPickerInput } from '@mantine/dates';
