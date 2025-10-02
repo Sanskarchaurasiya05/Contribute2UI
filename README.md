@@ -1,69 +1,126 @@
-# React + TypeScript + Vite
+🤝 Contribute2UI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A collaborative platform where developers can share their project repositories and get help from contributors.
+It enables contributors to add missing features, fix bugs, or enhance code quality, while fostering a supportive developer community and promoting open-source collaboration.
 
-Currently, two official plugins are available:
+🚀 Startups can also find and hire active contributors as interns!
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 Live Demo: Contribute2UI
 
-## Expanding the ESLint configuration
+📌 Features
+🔐 Authentication & Security
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+User registration & login
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+JWT-based authentication
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+Password hashing with bcrypt
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Protected routes with token validation middleware
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+👨‍💻 User Experience
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Responsive design for all devices
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Dashboard with task & contribution statistics
+
+User profile management
+
+Loading states & error handling
+
+Mobile-friendly navigation
+
+Client & server-side form validation
+
+⚙️ Technical Features
+
+RESTful API design
+
+MongoDB integration for persistence
+
+Modern React (18+) with hooks
+
+Redux Toolkit for global state management
+
+Tailwind CSS for styling
+
+Component-based architecture
+
+Context API for state sharing (where needed)
+
+🛠️ Tech Stack
+
+Frontend:
+
+React 18+ (Vite)
+
+Redux Toolkit
+
+React Router
+
+Tailwind CSS
+
+Lucide React (icons)
+
+Axios
+
+Backend:
+
+Spring Boot
+
+JWT Authentication
+
+RESTful APIs
+
+Database:
+
+MongoDB
+
+📂 Project Structure
+Contribute2UI/
+│── backend/           # Spring Boot backend
+│── frontend/          # React + Redux frontend
+│── docs/              # Documentation (optional)
+│── README.md          # Project documentation
+
+⚡ Getting Started
+Clone the Repository
+git clone https://github.com/your-username/contribute2ui.git
+cd contribute2ui
+
+Backend Setup
+cd backend
+./mvnw spring-boot:run   # or mvn spring-boot:run
+
+Frontend Setup
+cd frontend
+npm install
+npm run dev
+
+
+Frontend runs at 👉 http://localhost:5173
+Backend runs at 👉 http://localhost:8080
+
+🚀 Usage
+
+Register / login as a user
+
+Create or share your project repository
+
+Contributors can pick issues, fix bugs, or add features
+
+Track activity via the dashboard
+
+🤝 Contributing
+
+We welcome contributions from everyone!
+
+Fork the repository
+
+Create a new branch (git checkout -b feature-name)
+
+Commit changes (git commit -m "Add feature")
+
+Push to your branch (git push origin feature-name)
+
+Open a Pull Request
