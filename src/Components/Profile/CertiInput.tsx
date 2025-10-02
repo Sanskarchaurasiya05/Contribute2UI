@@ -12,7 +12,7 @@ import { successNotification } from '../../Services/NotificationService';
 
 const CertiInput = (props:any) => {
     const select = fields;
-    const[issueDate,setIssueDate]=useState<Date | null>(new Date());
+    // const[issueDate,setIssueDate]=useState<Date | null>(new Date());
      const dispatch = useDispatch();
     const profile = useSelector((state: any) => state.profile);
     const form = useForm({

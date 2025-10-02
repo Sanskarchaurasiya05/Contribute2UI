@@ -43,7 +43,7 @@ const PostJob = () => {
         form.validate();
         if(!form.isValid()) return;
 
-        postJob(form.getValues()).then((res)=>{
+        postJob(form.getValues()).then(()=>{
             successNotification("success"," Job posted succefully");
             navigate("/jobs");
         }).catch((err)=>{

@@ -1,6 +1,5 @@
 
 import { useEffect, useState } from 'react';
-import { jobList } from '../../Data/JobsData'
 import JobCard from './JobCard'
 import Sort from './Sort'
 import { getAllJobs } from '../../Services/JobService';

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getItem, removeItem, setItem } from "../Services/LocalStorageService";
+import {  removeItem } from "../Services/LocalStorageService";
 
 const jwtSlice=createSlice({
     name:"jwt",

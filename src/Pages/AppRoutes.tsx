@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Header from "../Components/Header/Header"
 import { Divider } from "@mantine/core"
 import ScrollToTop from "../Components/LandingPage/ScrollToTop"
@@ -12,13 +12,13 @@ import SignUpPage from "./SignUpPage"
 import TalentProfilePage from "./TalentProfilePage"
 import HomePage from "./HomePage"
 import { Footer } from "../Components/Footer/Footer"
-import { useSelector } from "react-redux"
+
 import { ProfilePage } from "./ProfilePage"
 import ProtectedRoute from "../Services/ProtectedRoute"
 import PublicRoute from "../Services/PublicRoute"
 
 const AppRoutes=()=>{
-    const user = useSelector((state:any)=>state.user);
+    // const user = useSelector((state:any)=>state.user);
     return  <BrowserRouter>
        <Header/>
          <Divider size="xs" mx="md"/>
